@@ -1,63 +1,61 @@
-<<<<<<< HEAD
-# Real Estate Knowledge Base Dataset
+# Real Estate AI Assistant
 
-92 documents across 4 file formats, covering all required categories for
-the Real Estate AI Assistant RAG knowledge base.
+This project is a cloud-ready, retrieval-augmented generation (RAG) application for answering questions about real estate projects, builders, legal terms, payment plans, and customer support information.
 
-## Format breakdown
-| Format | Count | Folder |
-|---|---|---|
-| PDF | 21 | `pdf/` |
-| DOCX | 21 | `docx/` |
-| HTML | 23 | `html/` |
-| Markdown | 27 | `markdown/` |
-| **Total** | **92** | |
+It combines a Streamlit chat interface with a vector database built from a knowledge base of real estate documents stored in this repository.
 
-## Category coverage
+## Overview
 
-| Required category | Where it lives |
-|---|---|
-| Project brochures | `pdf/*_brochure.pdf` (6 projects) |
-| Builder websites | `html/*_home.html`, `*_about.html` (3 builders) |
-| Property listing portals | `html/propertybazaar_listing_*.html` (6 listings) |
-| Builder profile documents | `pdf/*_builder_profile.pdf`, `html/*_about.html` |
-| RERA documentation | `pdf/*_rera_summary.pdf` (6), `markdown/rera_general_information.md` |
-| Privacy Policy | `html/*_privacy_policy.html` (4, incl. portal) |
-| Terms & Conditions | `html/*_terms_conditions.html` (4, incl. portal) |
-| FAQ pages | `html/*_faq.html` (3 builders) |
-| Payment plans | `pdf/*_payment_plan.pdf` (6 projects) |
-| Cancellation & Refund policies | `docx/*_cancellation_refund_policy.docx` (3 builders) |
-| Home loan information | `markdown/home_loan_*.md` (5 docs) |
-| Registration process | `docx/*_registration_process.docx` (6 projects) |
-| Possession guidelines | `docx/*_possession_guidelines.docx` (6 projects) |
-| Customer support documentation | `markdown/*_customer_support.md` (3 builders) |
-| *(bonus)* Amenities guides | `markdown/*_amenities_guide.md` (6 projects) |
-| *(bonus)* Location guides | `markdown/*_location_guide.md` (6 projects) |
-| *(bonus)* Floor plan descriptions | `markdown/*_floor_plans.md` (6 projects) |
-| *(bonus)* Sale agreement / legal terms | `docx/*_sale_agreement_terms.docx` (6 projects) |
+The application allows users to ask natural-language questions such as:
 
-## Content notes
+- What is the payment plan for a project?
+- What are the terms and conditions?
+- What is the possession guideline?
+- What support information is available for a builder?
 
-- Content is built around 3 fictional builders (Skyline Horizon Developers,
-  Meridian Greens Realty, Urban Nest Infrastructures) and 6 fictional
-  projects, kept internally consistent (prices, RERA numbers, possession
-  dates, locations) across every document type so retrieval/citation
-  behavior looks realistic — cross-document questions (e.g. "what's the
-  payment plan for the project priced under 1 crore in Hinjewadi?") have a
-  real, traceable answer.
-- All RERA numbers, prices, and dates are synthetic and for demo purposes
-  only — do not use as real regulatory or financial data.
-- Generated with `generate.py` (included) — rerun it any time to regenerate
-  or extend the set (e.g. add more builders/projects to the `BUILDERS` dict
-  at the top of the script).
+The system retrieves relevant documents from the knowledge base and uses an LLM to generate concise answers.
 
-## Using with the RAG pipeline
+## Project Structure
 
-Drop the four folders' contents into `data/raw/` of the RAG assistant repo,
-then run:
-```
-python -m src.ingestion.build_index --reset
-```
-=======
-# Real-estate-AI-Assistant-Cloud-based
->>>>>>> 9c948b07c3509db209b203bf0fa0a6f8cd763c6b
+- app.py — Streamlit web application for the chat interface
+- src/ingestion/build_index.py — script to load documents, split them into chunks, and build the vector index
+- data/ — raw data source files used for indexing
+- chroma_db_v2/ — persistent Chroma vector database
+- requirements.txt — Python dependencies
+
+## Technologies Used
+
+- Streamlit for the user interface
+- LangChain for retrieval and prompt chaining
+- Chroma for vector storage
+- Hugging Face embeddings for semantic search
+- Groq LLM for answer generation
+
+## Dataset / Knowledge Base
+
+The project includes a synthetic real-estate knowledge base with documents covering:
+
+- Project brochures
+- Builder websites and profile documents
+- RERA-related information
+- Privacy policy and terms documents
+- FAQ content
+- Payment plans and registration details
+- Possession guidance
+- Customer support and loan-related documentation
+
+## Prerequisites
+
+Before running the project, make sure you have:
+
+- Python 3.10 or newer
+- A Groq API key
+- Internet access to download required packages and models
+
+## Installation
+
+1. Open the project folder
+2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
