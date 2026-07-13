@@ -1,0 +1,16 @@
+streamlit
+langchain
+langchain-core
+langchain-community
+langchain-chroma
+langchain-huggingface
+langchain-groq
+chromadb
+sentence-transformers
+pysqlite3-binary; sys_platform == 'linux'
+torch
+pypdf
+python-docx
+docx2txt
+beautifulsoup4
+markdown
