@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Real Estate Knowledge Base Dataset
 
 92 documents across 4 file formats, covering all required categories for
@@ -57,3 +58,6 @@ then run:
 ```
 python -m src.ingestion.build_index --reset
 ```
+=======
+# Real-estate-AI-Assistant-Cloud-based
+>>>>>>> 9c948b07c3509db209b203bf0fa0a6f8cd763c6b
